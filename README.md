@@ -1,73 +1,83 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+Start with :
+.env > JWT_SECRET_KEY=secretkeyhere
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Check tests: npm run test or yarn test
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Routes:
+AuthController
+AuthController - это контроллер, который обрабатывает HTTP-запросы, связанные с аутентификацией и авторизацией пользователей.
 
-## Description
+Методы
+POST /auth/signin
+Описание: Авторизация пользователя.
+HTTP-метод: POST
+Параметры запроса: email - электронная почта пользователя, password - пароль пользователя
+Возвращает: Объект с сообщением об успешной аутентификации и токеном доступа или сообщением об ошибке
+POST /auth/signup
+Описание: Регистрация нового пользователя.
+HTTP-метод: POST
+Параметры запроса: Данные нового пользователя (электронная почта, пароль)
+Возвращает: Объект с сообщением об успешной регистрации и данными созданного пользователя или сообщением об ошибке
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+ProductController
+ProductController - это контроллер, который обрабатывает HTTP-запросы, связанные с продуктами.
 
-## Installation
+Методы
+GET /product
+Описание: Получить список всех продуктов.
+HTTP-метод: GET
+Параметры запроса: Нет
+Возвращает: Массив объектов продуктов
+GET /product/:id
+Описание: Получить информацию о продукте по его идентификатору.
+HTTP-метод: GET
+Параметры запроса: id - идентификатор продукта
+Возвращает: Объект продукта или сообщение об ошибке, если продукт не найден
+POST /product
+Описание: Создать новый продукт.
+HTTP-метод: POST
+Параметры запроса: Данные нового продукта (название, описание, цена, категория)
+Возвращает: Созданный продукт или сообщение об ошибке, если продукт с таким названием уже существует
+PATCH /product/:id
+Описание: Обновить существующий продукт.
+HTTP-метод: PATCH
+Параметры запроса: id - идентификатор обновляемого продукта, данные для обновления (название, описание, цена, категория)
+Возвращает: Обновленный продукт или сообщение об ошибке, если продукт не найден
+PUT /product/:id
+Описание: Заменить существующий продукт новым.
+HTTP-метод: PUT
+Параметры запроса: id - идентификатор заменяемого продукта, данные для нового продукта (название, описание, цена, категория)
+Возвращает: Новый продукт или сообщение об ошибке, если продукт не найден
+DELETE /product/:id
+Описание: Удалить продукт.
+HTTP-метод: DELETE
+Параметры запроса: id - идентификатор удаляемого продукта
+Возвращает: Сообщение об успешном удалении или сообщение об ошибке, если продукт не найден
+ProductService
+ProductService - это сервис, который обрабатывает бизнес-логику, связанную с продуктами.
 
-```bash
-$ yarn install
-```
-
-## Running the app
-
-```bash
-# development
-$ yarn run start
-
-# watch mode
-$ yarn run start:dev
-
-# production mode
-$ yarn run start:prod
-```
-
-## Test
-
-```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+Методы
+create(product: CreateProductDTO): Promise<any>
+Описание: Создать новый продукт.
+Параметры: product - данные нового продукта
+Возвращает: Созданный продукт или сообщение об ошибке, если продукт с таким названием уже существует
+findAll(): Promise<Product[]>
+Описание: Получить список всех продуктов.
+Параметры: Нет
+Возвращает: Массив объектов продуктов
+findOne(id: number): Promise<any>
+Описание: Получить информацию о продукте по его идентификатору.
+Параметры: id - идентификатор продукта
+Возвращает: Объект продукта или сообщение об ошибке, если продукт не найден
+update(id: number, updateProductDto: UpdateProductDTO): Promise<any>
+Описание: Обновить существующий продукт.
+Параметры: id - идентификатор обновляемого продукта, updateProductDto - данные для обновления
+Возвращает: Обновленный продукт или сообщение об ошибке, если продукт не найден
+replace(id: number, updateProductDto: UpdateProductDTO): Promise<any>
+Описание: Заменить существующий продукт новым.
+Параметры: id - идентификатор заменяемого продукта, updateProductDto - данные для нового продукта
+Возвращает: Новый продукт или сообщение об ошибке, если продукт не найден
+delete(id: number): Promise<any>
+Описание: Удалить продукт.
+Параметры: id - идентификатор удаляемого продукта
+Возвращает: Сообщение об успешном удалении или сообщение об ошибке, если продукт не найден
