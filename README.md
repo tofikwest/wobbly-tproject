@@ -1,6 +1,10 @@
-Start with :
-.env > JWT_SECRET_KEY=secretkeyhere
 
+Start with :
+ - Install dependencies
+ - Check .env.tempalte
+ - Put variables to .env
+ - Start project
+   
 Check tests: npm run test or yarn test
 
 Routes:
